@@ -1,2 +1,2 @@
-# Go-Booking-App
-Simple conference ticket booking app written in Golang.
+# PayUp-Go
+My first full-stack application written in Golang to process online payments.
