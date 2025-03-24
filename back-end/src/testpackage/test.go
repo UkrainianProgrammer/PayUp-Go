@@ -8,4 +8,5 @@ func MyFunction() {
 
 func myPrivateFunction() {
 	fmt.Println("Step 5")
+	fmt.Println("End of steps")
 }
