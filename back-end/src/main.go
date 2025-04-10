@@ -6,10 +6,11 @@ import (
 )
 
 // http://localhost:4242/create-initial-payment
-// http://localhost:4042/health
 
 func main() {
 	http.HandleFunc("/create-payment-intent", handleCreatePaymentIntent)
+
+	http.ListenAndServe("localhost:4242", nil)
 }
 
 func handleCreatePaymentIntent(w http.ResponseWriter, r *http.Request) {
