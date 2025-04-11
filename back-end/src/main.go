@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -10,7 +11,10 @@ import (
 func main() {
 	http.HandleFunc("/create-payment-intent", handleCreatePaymentIntent)
 
-	http.ListenAndServe("localhost:4242", nil)
+	var err error = http.ListenAndServe("localhost:4242", nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func handleCreatePaymentIntent(w http.ResponseWriter, r *http.Request) {
