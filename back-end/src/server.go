@@ -20,7 +20,7 @@ func main() {
 }
 
 func handleCreatePaymentIntent(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Endpoint called!")
+	fmt.Println("Handled payment!")
 }
 
 func handleHealth(w http.ResponseWriter, r *http.Request) {
