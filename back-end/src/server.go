@@ -23,6 +23,6 @@ func handleCreatePaymentIntent(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Handled payment!")
 }
 
-func handleHealth(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("OK!")
+func handleHealth(writer http.ResponseWriter, request *http.Request) {
+	var response []byte = []byte("Server is up and running!")
 }
