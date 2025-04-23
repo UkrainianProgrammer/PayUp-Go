@@ -24,6 +24,8 @@ func handleCreatePaymentIntent(writer http.ResponseWriter, request *http.Request
 		http.Error(writer, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
 		return
 	}
+
+	fmt.Println("request method was correct!")
 }
 
 func handleHealth(writer http.ResponseWriter, request *http.Request) {
