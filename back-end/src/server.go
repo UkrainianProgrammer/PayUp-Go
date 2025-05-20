@@ -44,6 +44,7 @@ func handleCreatePaymentIntent(writer http.ResponseWriter, request *http.Request
 		return
 	}
 
+	fmt.Println(req.ProductId)
 	fmt.Println(req.FirstName)
 	fmt.Println(req.LastName)
 	fmt.Println(req.Address1)
