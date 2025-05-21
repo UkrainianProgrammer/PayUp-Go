@@ -46,7 +46,9 @@ func handleCreatePaymentIntent(writer http.ResponseWriter, request *http.Request
 		return
 	}
 
-	params := &stripe.PaymentIntentParams{}
+	params := &stripe.PaymentIntentParams{
+		Amount: stripe.Int64(calculateOrderAmount(req.ProductId)),
+	}
 
 	fmt.Println(req.ProductId)
 	fmt.Println(req.FirstName)
@@ -67,4 +69,17 @@ func handleHealth(writer http.ResponseWriter, request *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 	}
+}
+
+func calculateOrderAmount(productId string) int64 {
+	// prices are in cents
+	switch productId {
+	case "Forever Pants":
+		return 2600
+	case "Forever Shirt":
+		return 15500
+	case "Forever Shorts":
+		return 30000
+	}
+	return 0
 }
