@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/stripe/stripe-go/v82"
 )
 
 // http://localhost:4242/create-initial-payment
@@ -43,6 +45,8 @@ func handleCreatePaymentIntent(writer http.ResponseWriter, request *http.Request
 		http.Error(writer, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	params := &stripe.PaymentIntentParams{}
 
 	fmt.Println(req.ProductId)
 	fmt.Println(req.FirstName)
