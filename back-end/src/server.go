@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/stripe/stripe-go/v82"
+	"github.com/stripe/stripe-go/v82/paymentintent"
 )
 
 // http://localhost:4242/create-initial-payment
@@ -52,6 +53,11 @@ func handleCreatePaymentIntent(writer http.ResponseWriter, request *http.Request
 		AutomaticPaymentMethods: &stripe.PaymentIntentAutomaticPaymentMethodsParams{
 			Enabled: stripe.Bool(true),
 		},
+	}
+
+	paymentIntent, err := paymentintent.New(params)
+	if err != nil {
+		http.Error(writer, err.Error(), http.StatusInternalServerError)
 	}
 
 	fmt.Println(req.ProductId)
