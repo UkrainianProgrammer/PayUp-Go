@@ -60,15 +60,7 @@ func handleCreatePaymentIntent(writer http.ResponseWriter, request *http.Request
 		http.Error(writer, err.Error(), http.StatusInternalServerError)
 	}
 
-	fmt.Println(req.ProductId)
-	fmt.Println(req.FirstName)
-	fmt.Println(req.LastName)
-	fmt.Println(req.Address1)
-	fmt.Println(req.Address2)
-	fmt.Println(req.City)
-	fmt.Println(req.Zip)
-	fmt.Println(req.State)
-	fmt.Println(req.Country)
+	fmt.Println(paymentIntent.ClientSecret)
 }
 
 func handleHealth(writer http.ResponseWriter, request *http.Request) {
