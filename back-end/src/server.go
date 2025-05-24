@@ -13,6 +13,8 @@ import (
 // http://localhost:4242/create-initial-payment
 
 func main() {
+	stripe.Key = "abc"
+
 	http.HandleFunc("/create-payment-intent", handleCreatePaymentIntent)
 	http.HandleFunc("/health", handleHealth)
 
