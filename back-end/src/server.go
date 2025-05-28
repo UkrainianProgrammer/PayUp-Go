@@ -60,6 +60,7 @@ func handleCreatePaymentIntent(writer http.ResponseWriter, request *http.Request
 	paymentIntent, err := paymentintent.New(params)
 	if err != nil {
 		http.Error(writer, err.Error(), http.StatusInternalServerError)
+		fmt.Println(err.Error())
 	}
 
 	fmt.Println(paymentIntent.ClientSecret)
