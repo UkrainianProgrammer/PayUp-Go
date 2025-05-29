@@ -64,6 +64,12 @@ func handleCreatePaymentIntent(writer http.ResponseWriter, request *http.Request
 	}
 
 	fmt.Println(paymentIntent.ClientSecret)
+
+	var response struct {
+		ClientSecret string `json:"clientSecret"`
+	}
+
+	response.ClientSecret = paymentIntent.ClientSecret
 }
 
 func handleHealth(writer http.ResponseWriter, request *http.Request) {
