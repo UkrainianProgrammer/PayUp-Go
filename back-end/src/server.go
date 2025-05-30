@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -70,6 +71,9 @@ func handleCreatePaymentIntent(writer http.ResponseWriter, request *http.Request
 	}
 
 	response.ClientSecret = paymentIntent.ClientSecret
+
+	var buf bytes.Buffer
+	json.NewEncoder(&buf).Encode(response)
 }
 
 func handleHealth(writer http.ResponseWriter, request *http.Request) {
