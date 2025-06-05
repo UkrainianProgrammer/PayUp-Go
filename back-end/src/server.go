@@ -77,6 +77,8 @@ func handleCreatePaymentIntent(writer http.ResponseWriter, request *http.Request
 	if err != nil {
 		http.Error(writer, err.Error(), http.StatusInternalServerError)
 	}
+
+	writer.Header().Set("Content-Type", "application/json")
 }
 
 func handleHealth(writer http.ResponseWriter, request *http.Request) {
