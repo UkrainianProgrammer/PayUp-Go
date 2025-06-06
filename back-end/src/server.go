@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 
@@ -79,6 +80,11 @@ func handleCreatePaymentIntent(writer http.ResponseWriter, request *http.Request
 	}
 
 	writer.Header().Set("Content-Type", "application/json")
+
+	_, err = io.Copy(writer, &buf)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 func handleHealth(writer http.ResponseWriter, request *http.Request) {
